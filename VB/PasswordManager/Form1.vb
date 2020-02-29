@@ -3,17 +3,16 @@ Imports System.IO
 
 Public Class Form1
     Dim n As Integer
+    Dim fr As StreamReader
+    Dim fw As StreamWriter
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim fw As StreamWriter
         Try
-            'Путь к файлу указан в StreamWriter конструкторе.
-            'Для  параметра append установлено значение True, так что файл не будет перезаписан.
             n = n + 1
             ComboBox1.Items.Add(TextBox4.Text)
-            fw = New StreamWriter("F:\Projects\VB\PasswordManager\profiles\Index.txt", True)
+            fw = New StreamWriter("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\profiles\Index.txt", True)
             fw.WriteLine(TextBox4.Text)
             fw.Close()
-            fw = New StreamWriter("F:\Projects\VB\PasswordManager\date\" + (TextBox4.Text) + ".txt", True)
+            fw = New StreamWriter("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\date\" + (TextBox4.Text) + ".txt", True)
             fw.WriteLine(TextBox1.Text)
             fw.WriteLine(TextBox2.Text)
         Finally
@@ -29,8 +28,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim fr As StreamReader
-        fr = New StreamReader("F:\Projects\VB\PasswordManager\date\" + ComboBox1.Text + ".txt")
+        fr = New StreamReader("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\date\" + ComboBox1.Text + ".txt")
         Dim ReadString As String
         ReadString = ""
         Dim FileString As String
@@ -43,6 +41,18 @@ Public Class Form1
         fr.Close()
         TextBox3.Visible = True
         TextBox3.Text = ReadString
+    End Sub
+
+    Private Sub Form1_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
+        fr = New StreamReader("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\profiles\Index.txt")
+        While fr.Peek <> -1
+            ComboBox1.Items.Add(fr.ReadLine)
+        End While
+        fr.Close()
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+
     End Sub
 End Class
 
