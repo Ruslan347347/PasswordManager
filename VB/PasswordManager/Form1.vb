@@ -13,8 +13,8 @@ Public Class Form1
             fw.WriteLine(TextBox4.Text)
             fw.Close()
             fw = New StreamWriter("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\date\" + (TextBox4.Text) + ".txt", True)
-            fw.WriteLine(TextBox1.Text)
-            fw.WriteLine(TextBox2.Text)
+            fw.WriteLine("Логин: " + TextBox1.Text)
+            fw.WriteLine("Пароль: " + TextBox2.Text)
         Finally
             'Очистить поле
             TextBox4.Text = ""
@@ -94,6 +94,10 @@ Public Class Form1
             'Закрыть файл.
             fw.Close()
         End Try
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+
     End Sub
 End Class
 
