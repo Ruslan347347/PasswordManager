@@ -5,6 +5,7 @@ Public Class Form1
     Dim n As Integer
     Dim fr As StreamReader
     Dim fw As StreamWriter
+    Dim line As String
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Try
             n = n + 1
@@ -95,7 +96,6 @@ Public Class Form1
             fw.Close()
         End Try
     End Sub
-
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
 
     End Sub
@@ -125,5 +125,23 @@ End Class
 
 'End Sub
 
+
+
+'Dim Res As String
+'Dim line As String
+'Try
+'Dim StreamReader As New IO.StreamReader("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\date\" + ComboBox1.Text + ".txt")
+'Do
+'line = StreamReader.ReadLine()
+''Res = InputBox("Измените нужные вам данные", "Изменение записи", line)
+'If line <> Res Then
+'fw = New StreamWriter("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\date\" + (ComboBox1.Text) + ".txt", True)
+'fw.WriteLine(line)
+'End If
+'Loop Until line Is Nothing
+'StreamReader.Close()
+'Catch ex As Exception
+'Console.WriteLine("Не возможно прочитать данные из файла!")
+'End Try
 
 
