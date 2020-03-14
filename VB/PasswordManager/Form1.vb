@@ -10,10 +10,10 @@ Public Class Form1
         Try
             n = n + 1
             ComboBox1.Items.Add(TextBox4.Text)
-            fw = New StreamWriter("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\profiles\Index.txt", True)
+            fw = New StreamWriter("\profiles\Index.txt", True)
             fw.WriteLine(TextBox4.Text)
             fw.Close()
-            fw = New StreamWriter("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\date\" + (TextBox4.Text) + ".txt", True)
+            fw = New StreamWriter("\date\" + (TextBox4.Text) + ".txt", True)
             fw.WriteLine("Логин: " + TextBox1.Text)
             fw.WriteLine("Пароль: " + TextBox2.Text)
         Finally
@@ -29,7 +29,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        fr = New StreamReader("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\date\" + ComboBox1.Text + ".txt")
+        fr = New StreamReader("\date\" + ComboBox1.Text + ".txt")
         Dim ReadString As String
         ReadString = ""
         Dim FileString As String
@@ -45,7 +45,7 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
-        fr = New StreamReader("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\profiles\Index.txt")
+        fr = New StreamReader("\profiles\Index.txt")
         While fr.Peek <> -1
             ComboBox1.Items.Add(fr.ReadLine)
         End While
@@ -82,10 +82,10 @@ Public Class Form1
         Try
             n = n + 1
             ComboBox1.Items.Add(TextBox4.Text)
-            fw = New StreamWriter("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\profiles\Index.txt", True)
+            fw = New StreamWriter("\profiles\Index.txt", True)
             fw.WriteLine(TextBox4.Text)
             fw.Close()
-            fw = New StreamWriter("F:\GitKraken\PasswordManager\PasswordManager\VB\PasswordManager\date\" + (TextBox4.Text) + ".txt", True)
+            fw = New StreamWriter("\date\" + (TextBox4.Text) + ".txt", True)
             fw.WriteLine(TextBox5.Text)
         Finally
             'Очистить поле
